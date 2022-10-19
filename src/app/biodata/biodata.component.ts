@@ -94,6 +94,7 @@ viewalldata(){
       );
     
       this.isChecked=true;
+      this.buttonDisabled=false;
       
     
   }
