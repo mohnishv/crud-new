@@ -127,7 +127,7 @@ onview(id:string){
     
       );
       this.buttonDisabled=true;
-
+      this.isChecked=false;
 
 
 
