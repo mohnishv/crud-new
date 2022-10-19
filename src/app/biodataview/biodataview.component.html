@@ -1,9 +1,189 @@
 <div class="container">
-    <h1  class="title mt-3">
-        <strong >Bio Data</strong>
-    </h1>
-    <div class="col-md-12">
-        
-    </div>
-</div>
+    
+    <div class="register col-md-5 col-sm-6" >
+           <h1 class="title mt-3"><strong>Bio Data</strong>
+           </h1>
+           
+           
+           <form (ngSubmit)="submit(bio.value)" #bio="ngForm" >
+               <div class="form-group">
+               <label class="reg_txt">Name <span>*</span></label>
+                  <div class="col-md-12 mb-4">
+                    <div class="row">
+                        <div class="col-md-6 pl-0">
+                            <input type="text" minlength="3" maxlength="10"  placeholder="First" name = "firstName" class="input-name w-100" ngModel #firstName="ngModel" [ngClass]="{ 'is-invalid': firstName.touched && firstName.invalid }" required />
+                            <div class="invalid-feedback" *ngIf="firstName.touched && !firstName.valid">
+                                <div *ngIf="firstName.errors && firstName.errors['required']">First Name is required.</div>
+                                <div *ngIf="firstName.errors && firstName.errors['minlength']">First Name is minimum {{ firstName.errors && firstName.errors['minlength'].requiredLength }} character.</div>
+                                <div *ngIf="firstName.errors && firstName.errors['maxlength']">First Name is maximum 10 character.</div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-6 pl-0">
+                            <input type="text"  placeholder="Last"  name = "lastName" class="input-name w-100" ngModel #lastName="ngModel" [ngClass]="{ 'is-invalid': lastName.touched && lastName.invalid }" required />
+                            <div class="invalid-feedback" *ngIf="lastName.touched && !lastName.valid">
+                                <div *ngIf="lastName.errors && lastName.errors['required']"> Last Name is required.</div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                  </div>                       
+               </div>
+               <div class="clearfix"></div>
+               
+               <div class="form-group">
+               <label class="reg_txt">Email  <span>*</span></label>
+               <div class="col-md-12 pl-0 mb-4">
+               <input type="text"  name="email"  placeholder="E-mail" class="form-register  text" ngModel #email="ngModel" [ngClass]="{ 'is-invalid': email.touched && email.invalid }" required/>
+               <div class="invalid-feedback" *ngIf="email.touched && !email.valid">
+                <div *ngIf="email.errors && email.errors['required']">email is required.</div>
+                
+            </div>
+                  </div>
+               </div>
+               <div class="clearfix"></div>
+               
+               <div class="form-group" style="height:70px;">
+               <label class="reg_txt">Phone Number  <span>*</span></label>
+               <div class="col-md-12 mb-4">
+                <div class="row">
+                    <div class="col-md-12 pl-0">
+                        <input    id="phoneNumber" name="phoneNumber"  type="text" maxlength="10"   class="text input-name1 " ngModel #phoneNumber="ngModel" [ngClass]="{ 'is-invalid': phoneNumber.touched && phoneNumber.invalid }" required   numbersOnly />  
+                        <div class="invalid-feedback" *ngIf="phoneNumber.touched && !phoneNumber.valid">
+                            <div *ngIf="email.errors && email.errors['required']">phoneNumber is required.</div> 
+                            <div *ngIf="phoneNumber.errors && phoneNumber.errors['maxlength']">phoneNumber is maximum 10 character.</div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-4 pl-0">
+                        <input   formControlName="mobileNumber1"  id="mobileNumber1"  type="text"  maxlength="3"  class="text input-name1 " [ngClass]="{ 'is-invalid': submitted && f.mobileNumber1.errors }" ngModel numbersOnly />  
+                        <div *ngIf="submitted && f.mobileNumber1.errors" class="invalid-feedback">  
+                            <div *ngIf="f.mobileNumber1.errors.required">Phone Number is required.</div>  
+                            <div *ngIf="f.mobileNumber1.errors.pattern">Please, Enter 3 digit Mobile Number.</div>  
+                    </div>
+                    </div>
+                    <div class="col-md-4 pl-0">
+                        <input   formControlName="mobileNumber2"  id="mobileNumber2"  type="text" maxlength="4"   class="text input-name1 " [ngClass]="{ 'is-invalid': submitted && f.mobileNumber2.errors }" ngModel numbersOnly />  
+                        <div *ngIf="submitted && f.mobileNumber2.errors" class="invalid-feedback">  
+                            <div *ngIf="f.mobileNumber2.errors.required">Phone Number is required.</div>  
+                            <div *ngIf="f.mobileNumber2.errors.pattern">Please, Enter 4 digit Mobile Number.</div>  
+                    </div>
+                    </div> -->
+                </div>
+              
+           </div>  
+        </div> 
+              
+              
+               
+               <div class="clearfix"></div>
+               
+               <div class="form-group">
+               <label class="reg_txt">Address  <span>*</span></label>
+               <div class="col-md-12 pl-0 mb-4">
+                <input type="text" 
+                id="address1" name="address1" class="form-register text " id="" placeholder="Line 1"  >
+                
+            </div>
+               <div class="col-md-12 pl-0 mb-4"> 
+                <input type="text"
+                id="address2" name="address2" class="form-register text " id="" placeholder="Line 2"  >
+                
+            </div>
+                   
+                  
+               </div>
 
+
+               <div class="col-md-12 mb-4">
+                <div class="row">
+                    <div class="col-md-6 pl-0">
+                        <input type="text"  
+                        id="city" name="city" class="input-name w-100" placeholder="city" >
+                        
+                    </div>
+                        <div class="col-md-6 pl-0">
+                            <input type="text" f
+                            id="state" name="state" class="input-name w-100" placeholder="state"  >
+                            
+                        </div>
+                        </div>
+                        </div>
+
+                        <div class="col-md-12 mb-4">
+                            <div class="row">
+                                <div class="col-md-6 pl-0">
+                                    <input type="text"   maxlength="6"
+                                    id="zipCode"  name="zipCode" class="input-name w-100" placeholder="Zip Code"   numbersOnly />
+                                    
+                                    </div>
+                                    <div class="col-md-6 pl-0">
+                                        <input type="text" 
+                                        id="country" name="country" class="input-name w-100" placeholder="country"   >
+                                       
+                                    </div>
+                                    </div>
+                                    </div>
+               
+              
+               
+               <div class="form-group">
+               <label class="reg_txt">Write Your qualification <span>*</span></label>
+               <div class="col-md-12 pl-0 mb-4"> 
+                <input type="text" name="qualification"
+                id="qualification" class="form-register text "    >
+              
+            </div>
+             
+                  
+                   <!-- <input type="text" class="form-register text" id="" placeholder="Add your qualification"> <span><img alt="" src="images/plus.png" class="add"></span> -->
+               </div>
+               
+               
+               <div class="clearfix"></div>
+               
+               <div class="form-group">
+               <label class="reg_txt">Comment  <span>*</span></label>  
+               <div class="col-md-12 pl-0 mb-4"> 
+                <textarea class="form-register text" 
+                id="comments" name="comments"  class="form-register text "    ></textarea>
+               
+               
+            </div>
+                                    
+                  
+               </div>
+               
+               <div class="form-group"  >
+                   <button type="submit"  class="btn btn-default submit w-100" [class.disabled]="!bio.valid" >Submit</button>
+                  
+               </div>
+           </form>
+        
+   </div>
+   
+   <div class="col-md-6 tabt">
+       <table class="table" style="table-layout: fixed;">
+
+     <tbody>
+     <tr class="ztxt">
+ <th>Name</th>
+ <th>Email</th>
+ <th>Phone</th>
+ <th>Edit</th>
+ <th>Delete</th>
+ <th>View</th>
+ </tr>
+<tr >
+    <td class="d-none"></td>
+ <td class="text-truncate"></td>
+ <td class="text-truncate"></td>
+ <td class="text-truncate"></td>
+ <td><button class="ed" >Edit</button></td>
+ <td><button class="ed" style="background:#f00; ">Delete</button></td>
+ <td><button class="ed"style="background:#000;">View</button></td>
+</tr>
+</tbody>
+</table>
+   </div>
+  
+</div>

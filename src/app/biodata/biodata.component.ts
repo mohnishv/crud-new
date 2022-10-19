@@ -10,6 +10,7 @@ export class BiodataComponent implements OnInit {
   myData: any[] = [];
   myviewData: any[] = [];
   public isChecked = false;
+  public isChecked1 = false;
   id: any;
 
   
@@ -19,7 +20,7 @@ export class BiodataComponent implements OnInit {
   updatedid:any;
   buttonDisabled: boolean = false;
   ngOnInit(): void {
-    console.log("buttonDisabled")
+    
     this.viewalldata();
     this.registerForm = this.formBuilder.group({
      
@@ -128,6 +129,7 @@ onview(id:string){
       );
       this.buttonDisabled=true;
       this.isChecked=false;
+      this.isChecked1=true;
 
 
 
