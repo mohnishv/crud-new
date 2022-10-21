@@ -19,7 +19,7 @@ import { BiodataviewComponent } from './biodataview/biodataview.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     FormsModule , 
     HttpClientModule
     

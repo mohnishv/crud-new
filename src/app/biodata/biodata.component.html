@@ -1,58 +1,108 @@
 <div class="container">
-    <div>Reactive form</div>
-    <div class="register col-md-5 col-sm-6" >
-           <h1 class="title mt-3"><strong>Bio Data</strong>
-           </h1>
-           
-           
-           <form [formGroup]="registerForm" (ngSubmit)="OnSubmit()" >
-               <div class="clearfix">
-               <label class="reg_txt">Name <span>*</span></label>
-                  <div class="col-md-12 mb-4">
-                    <div class="row">
-                        <div class="col-md-6 pl-0">
-                            <input type="text" formControlName="firstName" [readonly]="buttonDisabled" placeholder="First" name = "firstName" class="input-name w-100" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" ngModel/>
-                          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                              <div *ngIf="f.firstName.errors.required">Firstname is required</div>
-                          </div>
-                            
-                        </div>
-                        <div class="col-md-6 pl-0">
-                            <input type="text" formControlName="lastName" placeholder="Last" [readonly]="buttonDisabled"  name = "lastName" class="input-name w-100" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" ngModel/>
-                          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                              <div *ngIf="f.lastName.errors.required">Lastname is required</div>
-                          </div>
-                         
-                        </div>
-                    </div>
-                  </div>                       
-               </div>
-         
-               
-               <div class="clearfix">
-               <label class="reg_txt">Email  <span>*</span></label>
-               <div class="col-md-12 pl-0 mb-4">
-               <input type="text" formControlName="email" name="email" [readonly]="buttonDisabled" placeholder="E-mail" class="form-register  text" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" ngModel/>
-               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                   <div *ngIf="f.email.errors.required">Email is required</div>
-                   <div *ngIf="f.email.errors.pattern">Email must be a valid email address</div>
-               </div>
-                  </div>
-               </div>
-              
-               
-               <div class="clearfix" style="height:70px;">
-               <label class="reg_txt">Phone Number  <span>*</span></label>
-               <div class="col-md-12 mb-4">
-                <div class="row">
-                    <div class="col-md-12 pl-0">
-                        <input   formControlName="phoneNumber"  id="phoneNumber" [readonly]="buttonDisabled"  type="text" maxlength="10"   class="text input-name1 " [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" ngModel numbersOnly />  
-                        <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">  
-                            <div *ngIf="f.phoneNumber.errors.required">Phone Number is required.</div>  
-                            <div *ngIf="f.phoneNumber.errors.pattern">Please, Enter 10 digit Mobile Number.</div>  
-                    </div>
-                    </div>
-                    <!-- <div class="col-md-4 pl-0">
+  <div>Reactive form</div>
+  <div class="register col-md-5 col-sm-6">
+    <h1 class="title mt-3"><strong>Bio Data</strong></h1>
+
+    <form [formGroup]="registerForm" (ngSubmit)="OnSubmit()">
+      <div class="clearfix">
+        <label class="reg_txt">Name <span>*</span></label>
+        <div class="col-md-12 mb-4">
+          <div class="row">
+            <div class="col-md-6 pl-0">
+              <input
+                type="text"
+                formControlName="firstName"
+                [readonly]="buttonDisabled"
+                placeholder="First"
+                name="firstName"
+                class="input-name w-100"
+                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+                ngModel
+              />
+              <div
+                *ngIf="submitted && f.firstName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.firstName.errors.required">
+                  Firstname is required
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 pl-0">
+              <input
+                type="text"
+                formControlName="lastName"
+                placeholder="Last"
+                [readonly]="buttonDisabled"
+                name="lastName"
+                class="input-name w-100"
+                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+                ngModel
+              />
+              <div
+                *ngIf="submitted && f.lastName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.lastName.errors.required">
+                  Lastname is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix">
+        <label class="reg_txt">Email <span>*</span></label>
+        <div class="col-md-12 pl-0 mb-4">
+          <input
+            type="text"
+            formControlName="email"
+            name="email"
+            [readonly]="buttonDisabled"
+            placeholder="E-mail"
+            class="form-register text"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            ngModel
+          />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.pattern">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix" style="height: 70px">
+        <label class="reg_txt">Phone Number <span>*</span></label>
+        <div class="col-md-12 mb-4">
+          <div class="row">
+            <div class="col-md-12 pl-0">
+              <input
+                formControlName="phoneNumber"
+                id="phoneNumber"
+                [readonly]="buttonDisabled"
+                type="text"
+                maxlength="10"
+                class="text input-name1"
+                [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+                ngModel
+                numbersOnly
+              />
+              <div
+                *ngIf="submitted && f.phoneNumber.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.phoneNumber.errors.required">
+                  Phone Number is required.
+                </div>
+                <div *ngIf="f.phoneNumber.errors.pattern">
+                  Please, Enter 10 digit Mobile Number.
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-md-4 pl-0">
                         <input   formControlName="mobileNumber1"  id="mobileNumber1"  type="text"  maxlength="3"  class="text input-name1 " [ngClass]="{ 'is-invalid': submitted && f.mobileNumber1.errors }" ngModel numbersOnly />  
                         <div *ngIf="submitted && f.mobileNumber1.errors" class="invalid-feedback">  
                             <div *ngIf="f.mobileNumber1.errors.required">Phone Number is required.</div>  
@@ -66,139 +116,217 @@
                             <div *ngIf="f.mobileNumber2.errors.pattern">Please, Enter 4 digit Mobile Number.</div>  
                     </div>
                     </div> -->
-                </div>
-              
-           </div>  
-        </div> 
-              
-              
-               
-            
-               
-               <div class="clearfix">
-               <label class="reg_txt">Address  <span>*</span></label>
-               <div class="col-md-12 pl-0 mb-4">
-                <input type="text" formControlName="address1"  
-                id="address1" class="form-register text " id="" placeholder="Line 1" [readonly]="buttonDisabled" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" ngModel>
-                <div *ngIf="submitted && f.address1.errors" class="invalid-feedback">
-                    <div *ngIf="f.address1.errors.required">Line1 is required</div>
-                </div>
-            </div>
-               <div class="col-md-12 pl-0 mb-4"> 
-                <input type="text" formControlName="address2"  
-                id="address2" class="form-register text " id="" placeholder="Line 2" [readonly]="buttonDisabled" [ngClass]="{ 'is-invalid': submitted && f.address2.errors }" ngModel>
-                <div *ngIf="submitted && f.address2.errors" class="invalid-feedback">
-                    <div *ngIf="f.address2.errors.required">Line2 is required</div>
-                </div>
-            </div>
-                   
-                  
-               </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="clearfix">
+        <label class="reg_txt">Address <span>*</span></label>
+        <div class="col-md-12 pl-0 mb-4">
+          <input
+            type="text"
+            formControlName="address1"
+            id="address1"
+            class="form-register text"
+            id=""
+            placeholder="Line 1"
+            [readonly]="buttonDisabled"
+            [ngClass]="{ 'is-invalid': submitted && f.address1.errors }"
+            ngModel
+          />
+          <div *ngIf="submitted && f.address1.errors" class="invalid-feedback">
+            <div *ngIf="f.address1.errors.required">Line1 is required</div>
+          </div>
+        </div>
+        <div class="col-md-12 pl-0 mb-4">
+          <input
+            type="text"
+            formControlName="address2"
+            id="address2"
+            class="form-register text"
+            id=""
+            placeholder="Line 2"
+            [readonly]="buttonDisabled"
+            [ngClass]="{ 'is-invalid': submitted && f.address2.errors }"
+            ngModel
+          />
+          <div *ngIf="submitted && f.address2.errors" class="invalid-feedback">
+            <div *ngIf="f.address2.errors.required">Line2 is required</div>
+          </div>
+        </div>
+      </div>
 
-               <div class="col-md-12 mb-4">
-                <div class="row">
-                    <div class="col-md-6 pl-0">
-                        <input type="text" formControlName="city"  
-                        id="city" class="input-name w-100" placeholder="city" [readonly]="buttonDisabled"  [ngClass]="{ 'is-invalid': submitted && f.city.errors }" ngModel>
-                        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
-                            <div *ngIf="f.city.errors.required">City is required</div>
-                        </div>
-                    </div>
-                        <div class="col-md-6 pl-0">
-                            <input type="text" formControlName="state"  
-                            id="state" class="input-name w-100" placeholder="state" [readonly]="buttonDisabled" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" ngModel>
-                            <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
-                                <div *ngIf="f.state.errors.required">State is required</div>
-                            </div>
-                        </div>
-                        </div>
-                        </div>
-
-                        <div class="col-md-12 mb-4">
-                            <div class="row">
-                                <div class="col-md-6 pl-0">
-                                    <input type="text" formControlName="zipCode" [readonly]="buttonDisabled"  maxlength="6"
-                                    id="zipCode" class="input-name w-100" placeholder="Zip Code" [ngClass]="{ 'is-invalid': submitted && f.zipCode.errors }" ngModel numbersOnly />
-                                    <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback">  
-                                        <div *ngIf="f.zipCode.errors.required">ZipCode is required.</div>  
-                                        <div *ngIf="f.zipCode.errors.pattern">Please Enter 6 digit ZipCode.</div>  
-                                    </div> 
-                                    </div>
-                                    <div class="col-md-6 pl-0">
-                                        <input type="text" formControlName="country"  
-                                        id="country" class="input-name w-100" placeholder="country" [readonly]="buttonDisabled" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" ngModel>
-                                        <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
-                                            <div *ngIf="f.country.errors.required">Country is required</div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    </div>
-               
-              
-               
-               <div class="clearfix">
-               <label class="reg_txt">Write Your qualification <span>*</span></label>
-               <div class="col-md-12 pl-0 mb-4"> 
-                <input type="text" formControlName="qualification" [readonly]="buttonDisabled" 
-                id="qualification" class="form-register text "   [ngClass]="{ 'is-invalid': submitted && f.qualification.errors }" ngModel>
-                <div *ngIf="submitted && f.qualification.errors" class="invalid-feedback">
-                    <div *ngIf="f.qualification.errors.required">Qualification is required</div>
-                </div>
+      <div class="col-md-12 mb-4">
+        <div class="row">
+          <div class="col-md-6 pl-0">
+            <input
+              type="text"
+              formControlName="city"
+              id="city"
+              class="input-name w-100"
+              placeholder="city"
+              [readonly]="buttonDisabled"
+              [ngClass]="{ 'is-invalid': submitted && f.city.errors }"
+              ngModel
+            />
+            <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+              <div *ngIf="f.city.errors.required">City is required</div>
             </div>
-             
-                  
-                   <!-- <input type="text" class="form-register text" id="" placeholder="Add your qualification"> <span><img alt="" src="images/plus.png" class="add"></span> -->
-               </div>
-               
-               
-               
-               
-               <div class="clearfix">
-               <label class="reg_txt">Comment  <span>*</span></label>  
-               <div class="col-md-12 pl-0 mb-4"> 
-                <textarea class="form-register text" formControlName="comments"  [readonly]="buttonDisabled"
-                id="comments" class="form-register text "   [ngClass]="{ 'is-invalid': submitted && f.comments.errors }" ngModel ></textarea>
-               
-                <div *ngIf="submitted && f.comments.errors" class="invalid-feedback">
-                    <div *ngIf="f.comments.errors.required">Comment is required</div>
-                </div>
+          </div>
+          <div class="col-md-6 pl-0">
+            <input
+              type="text"
+              formControlName="state"
+              id="state"
+              class="input-name w-100"
+              placeholder="state"
+              [readonly]="buttonDisabled"
+              [ngClass]="{ 'is-invalid': submitted && f.state.errors }"
+              ngModel
+            />
+            <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+              <div *ngIf="f.state.errors.required">State is required</div>
             </div>
-                                    
-                  
-               </div>
-               
-               <div class="clearfix"  >
-                   <button type="submit" [disabled]="isChecked1" [ngClass]="{'d-none' : isChecked}" class="btn btn-default submit w-100" >Submit</button>
-                   <a (click)="Update()" [ngClass]="{'d-block' : isChecked}" class="btn btn-default update w-100" >Update</a>
-               </div>
-           </form>
-        
-   </div>
-   
-   <div class="col-md-6 tabt">
-       <table class="table" style="table-layout: fixed;">
+          </div>
+        </div>
+      </div>
 
-     <tbody>
-     <tr class="ztxt">
- <th>Name</th>
- <th>Email</th>
- <th>Phone</th>
- <th>Edit</th>
- <th>Delete</th>
- <th>View</th>
- </tr>
-<tr *ngFor="let d of myData;">
-    <td class="d-none">{{d._id}}</td>
- <td class="text-truncate">{{d.firstName}}</td>
- <td class="text-truncate">{{d.email}}</td>
- <td class="text-truncate">{{d.phoneNumber}}</td>
- <td><button class="ed" (click)="OnEdit(d)">Edit</button></td>
- <td><button class="ed" style="background:#f00;" (click)="OnDelete(d._id)">Delete</button></td>
- <td><button class="ed"style="background:#000;" (click)="OnView(d._id)">View</button></td>
-</tr>
-</tbody>
-</table>
-   </div>
-  
+      <div class="col-md-12 mb-4">
+        <div class="row">
+          <div class="col-md-6 pl-0">
+            <input
+              type="text"
+              formControlName="zipCode"
+              [readonly]="buttonDisabled"
+              maxlength="6"
+              id="zipCode"
+              class="input-name w-100"
+              placeholder="Zip Code"
+              [ngClass]="{ 'is-invalid': submitted && f.zipCode.errors }"
+              ngModel
+              numbersOnly
+            />
+            <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback">
+              <div *ngIf="f.zipCode.errors.required">ZipCode is required.</div>
+              <div *ngIf="f.zipCode.errors.pattern">
+                Please Enter 6 digit ZipCode.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 pl-0">
+            <input
+              type="text"
+              formControlName="country"
+              id="country"
+              class="input-name w-100"
+              placeholder="country"
+              [readonly]="buttonDisabled"
+              [ngClass]="{ 'is-invalid': submitted && f.country.errors }"
+              ngModel
+            />
+            <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+              <div *ngIf="f.country.errors.required">Country is required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix">
+        <label class="reg_txt">Write Your qualification <span>*</span></label>
+        <div class="col-md-12 pl-0 mb-4">
+          <input
+            type="text"
+            formControlName="qualification"
+            [readonly]="buttonDisabled"
+            id="qualification"
+            class="form-register text"
+            [ngClass]="{ 'is-invalid': submitted && f.qualification.errors }"
+            ngModel
+          />
+          <div
+            *ngIf="submitted && f.qualification.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.qualification.errors.required">
+              Qualification is required
+            </div>
+          </div>
+        </div>
+
+        <!-- <input type="text" class="form-register text" id="" placeholder="Add your qualification"> <span><img alt="" src="images/plus.png" class="add"></span> -->
+      </div>
+
+      <div class="clearfix">
+        <label class="reg_txt">Comment <span>*</span></label>
+        <div class="col-md-12 pl-0 mb-4">
+          <textarea
+            class="form-register text"
+            formControlName="comments"
+            [readonly]="buttonDisabled"
+            id="comments"
+            class="form-register text"
+            [ngClass]="{ 'is-invalid': submitted && f.comments.errors }"
+            ngModel
+          ></textarea>
+
+          <div *ngIf="submitted && f.comments.errors" class="invalid-feedback">
+            <div *ngIf="f.comments.errors.required">Comment is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix">
+        <button
+          type="submit"
+          [disabled]="isChecked1"
+          [ngClass]="{ 'd-none': isChecked }"
+          class="btn btn-default submit w-100"
+        >
+          Submit
+        </button>
+        <a
+          (click)="Update()"
+          [ngClass]="{ 'd-block': isChecked }"
+          class="btn btn-default update w-100"
+          >Update</a
+        >
+      </div>
+    </form>
+  </div>
+
+  <div class="col-md-6 tabt">
+    <table class="table" style="table-layout: fixed">
+      <tbody>
+        <tr class="ztxt">
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Edit</th>
+          <th>Delete</th>
+          <th>View</th>
+        </tr>
+        <tr *ngFor="let d of myData">
+          <td class="d-none">{{ d._id }}</td>
+          <td class="text-truncate">{{ d.firstName }}</td>
+          <td class="text-truncate">{{ d.email }}</td>
+          <td class="text-truncate">{{ d.phoneNumber }}</td>
+          <td><button class="ed" (click)="OnEdit(d)">Edit</button></td>
+          <td>
+            <button
+              class="ed"
+              style="background: #f00"
+              (click)="OnDelete(d._id)"
+            >
+              Delete
+            </button>
+          </td>
+          <td>
+            <button class="ed" style="background: #000" (click)="OnView(d._id)">
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
