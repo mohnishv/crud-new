@@ -28,14 +28,14 @@ export class BiodataviewComponent implements OnInit {
     console.log(form);
     var phoneNumber = form.phoneNumber;
     console.log(phoneNumber);
-    this.userService.postData(form).subscribe((res: any) => {
+    this.userService.PostData(form).subscribe((res: any) => {
       this.viewalldata();
     });
   
   }
   viewalldata(){
   
-    this.userService.getAllData()
+    this.userService.GetAllData()
     .subscribe(data => {
       this.myData = data;
       
@@ -44,7 +44,7 @@ export class BiodataviewComponent implements OnInit {
   }
   update(){
      
-    this.userService.editData(this.updatedid,this.form).subscribe((res) => {
+    this.userService.EditData(this.updatedid,this.form).subscribe((res) => {
       this.viewalldata();
   });
    
@@ -72,7 +72,7 @@ onEdit(item:any){
 }
     onDelete(id:string){
       
-          this.userService.deleteData(id).subscribe((res) => {
+          this.userService.DeleteData(id).subscribe((res) => {
         this.viewalldata();
        
        
@@ -80,7 +80,7 @@ onEdit(item:any){
     }
     onview(id:string){
   
-      this.userService.getById(id)
+      this.userService.GetById(id)
       .subscribe(data => {
         this.myviewData = data;
         console.log(this.myviewData)

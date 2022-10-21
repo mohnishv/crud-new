@@ -21,7 +21,7 @@ export class BiodataComponent implements OnInit {
   buttonDisabled: boolean = false;
   ngOnInit(): void {
     
-    this.viewalldata();
+    this.ViewAlldata();
     this.registerForm = this.formBuilder.group({
      
       firstName: ['', Validators.required],
@@ -41,7 +41,7 @@ export class BiodataComponent implements OnInit {
       });
   }
   get f() { return this.registerForm.controls; }
-  onSubmit() {
+  OnSubmit() {
     this.submitted = true;
 
       // stop here if form is invalid
@@ -51,14 +51,14 @@ export class BiodataComponent implements OnInit {
       console.log(this.registerForm.value)
       
       
-      this.userService.postData(this.registerForm.value).subscribe((res: any) => {
-        this.viewalldata();
+      this.userService.PostData(this.registerForm.value).subscribe((res: any) => {
+        this.ViewAlldata();
       });
    
   }
-viewalldata(){
+ViewAlldata(){
   
-  this.userService.getAllData()
+  this.userService.GetAllData()
   .subscribe(data => {
     this.myData = data;
     
@@ -66,15 +66,15 @@ viewalldata(){
  
 }
 
-  onDelete(id:string){
+  OnDelete(id:string){
     
-        this.userService.deleteData(id).subscribe((res) => {
-      this.viewalldata();
+        this.userService.DeleteData(id).subscribe((res) => {
+      this.ViewAlldata();
      
      
       });
   }
-  onEdit(item:any){
+  OnEdit(item:any){
     this.updatedid= item._id;
     this.registerForm.patchValue(
       {   firstName: item.firstName, 
@@ -98,16 +98,16 @@ viewalldata(){
       
     
   }
-  update(){
+  Update(){
      
-    this.userService.editData(this.updatedid,this.registerForm.value).subscribe((res) => {
-      this.viewalldata();
+    this.userService.EditData(this.updatedid,this.registerForm.value).subscribe((res) => {
+      this.ViewAlldata();
   });
    
 }
-onview(id:string){
+OnView(id:string){
   
-  this.userService.getById(id)
+  this.userService.GetById(id)
   .subscribe(data => {
     this.myviewData = data;
     console.log(this.myviewData)

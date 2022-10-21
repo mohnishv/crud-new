@@ -12,13 +12,13 @@ export class UserService {
   
   constructor(private _http: HttpClient) {
   }
-  getById(id: string): Observable<any> {
+  GetById(id: string): Observable<any> {
     return this._http.get(environment.BaseURI + `/${id}`);
   }
-  getAllData(): Observable<any> {
+  GetAllData(): Observable<any> {
     return this._http.get(environment.BaseURI)
  }
- postData(data: any): Observable<any> {
+ PostData(data: any): Observable<any> {
   const headers = new HttpHeaders().set(
     'Content-Type',
     'application/json; charset=utf-8'
@@ -26,15 +26,15 @@ export class UserService {
   return this._http.post(environment.BaseURI, data, { headers: headers, responseType: 'text' })
   
 }
-deleteData(id: string): Observable<any> {
+DeleteData(id: string): Observable<any> {
   return this._http.delete(environment.BaseURI + `/${id}`);
 }
-editData(id: string,data:any): Observable<any> {
-  const headers = new HttpHeaders().set(
+EditData(id: string,data1:any): Observable<any> {
+  const headers1 = new HttpHeaders().set(
     'Content-Type',
     'application/json; charset=utf-8'
   );
-  return this._http.put(environment.BaseURI + `/${id}`,data, { headers: headers, responseType: 'text'});
+  return this._http.put(environment.BaseURI + `/${id}`,data1, { headers: headers1, responseType: 'text'});
 }
   
 }

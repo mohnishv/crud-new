@@ -6,7 +6,7 @@
            
            
            <form (ngSubmit)="submit(bio.value)" #bio="ngForm" >
-               <div class="form-group">
+               <div class="clearfix">
                <label class="reg_txt">Name <span>*</span></label>
                   <div class="col-md-12 mb-4">
                     <div class="row">
@@ -29,9 +29,9 @@
                     </div>
                   </div>                       
                </div>
-               <div class="clearfix"></div>
                
-               <div class="form-group">
+               
+               <div class="clearfix">
                <label class="reg_txt">Email  <span>*</span></label>
                <div class="col-md-12 pl-0 mb-4">
                <input type="text"  name="email" [readonly]="buttonDisabled"  placeholder="E-mail" class="form-register  text" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': email.touched && email.invalid }" required/>
@@ -41,9 +41,9 @@
             </div>
                   </div>
                </div>
-               <div class="clearfix"></div>
                
-               <div class="form-group" style="height:70px;">
+               
+               <div class="clearfix" style="height:70px;">
                <label class="reg_txt">Phone Number  <span>*</span></label>
                <div class="col-md-12 mb-4">
                 <div class="row">
@@ -75,9 +75,9 @@
               
               
                
-               <div class="clearfix"></div>
+              
                
-               <div class="form-group">
+               <div class="clearfix">
                <label class="reg_txt">Address  <span>*</span></label>
                <div class="col-md-12 pl-0 mb-4">
                 <input type="text" 
@@ -144,7 +144,7 @@
                
               
                
-               <div class="form-group">
+               <div class="clearfix">
                <label class="reg_txt">Write Your qualification <span>*</span></label>
                <div class="col-md-12 pl-0 mb-4"> 
                 <input type="text" name="qualification" [readonly]="buttonDisabled"
@@ -160,9 +160,9 @@
                </div>
                
                
-               <div class="clearfix"></div>
+              
                
-               <div class="form-group">
+               <div class="clearfix">
                <label class="reg_txt">Comment  <span>*</span></label>  
                <div class="col-md-12 pl-0 mb-4"> 
                 <textarea required [(ngModel)]="model.comments" #comments="ngModel" name="comments" [readonly]="buttonDisabled" id="comments"  class="form-register text" [ngClass]="{ 'is-invalid': comments.touched && comments.invalid }" ></textarea>
@@ -177,9 +177,9 @@
                   
                </div>
                
-               <div class="form-group"  >
+               <div class="clearfix"  >
                    <button type="submit" [ngClass]="{'d-none' : isChecked}"  class="btn btn-default submit w-100" [disabled]="!bio.valid" >Submit</button>
-                   <button (click)="update()" [ngClass]="{'d-block' : isChecked}" class="btn btn-default update w-100" >Update</button>
+                   <a (click)="update()" [ngClass]="{'d-block' : isChecked}" class="btn btn-default update w-100" >Update</a>
                </div>
            </form>
         

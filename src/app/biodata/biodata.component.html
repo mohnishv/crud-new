@@ -5,8 +5,8 @@
            </h1>
            
            
-           <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
-               <div class="form-group">
+           <form [formGroup]="registerForm" (ngSubmit)="OnSubmit()" >
+               <div class="clearfix">
                <label class="reg_txt">Name <span>*</span></label>
                   <div class="col-md-12 mb-4">
                     <div class="row">
@@ -27,9 +27,9 @@
                     </div>
                   </div>                       
                </div>
-               <div class="clearfix"></div>
+         
                
-               <div class="form-group">
+               <div class="clearfix">
                <label class="reg_txt">Email  <span>*</span></label>
                <div class="col-md-12 pl-0 mb-4">
                <input type="text" formControlName="email" name="email" [readonly]="buttonDisabled" placeholder="E-mail" class="form-register  text" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" ngModel/>
@@ -39,9 +39,9 @@
                </div>
                   </div>
                </div>
-               <div class="clearfix"></div>
+              
                
-               <div class="form-group" style="height:70px;">
+               <div class="clearfix" style="height:70px;">
                <label class="reg_txt">Phone Number  <span>*</span></label>
                <div class="col-md-12 mb-4">
                 <div class="row">
@@ -73,9 +73,9 @@
               
               
                
-               <div class="clearfix"></div>
+            
                
-               <div class="form-group">
+               <div class="clearfix">
                <label class="reg_txt">Address  <span>*</span></label>
                <div class="col-md-12 pl-0 mb-4">
                 <input type="text" formControlName="address1"  
@@ -137,7 +137,7 @@
                
               
                
-               <div class="form-group">
+               <div class="clearfix">
                <label class="reg_txt">Write Your qualification <span>*</span></label>
                <div class="col-md-12 pl-0 mb-4"> 
                 <input type="text" formControlName="qualification" [readonly]="buttonDisabled" 
@@ -152,9 +152,9 @@
                </div>
                
                
-               <div class="clearfix"></div>
                
-               <div class="form-group">
+               
+               <div class="clearfix">
                <label class="reg_txt">Comment  <span>*</span></label>  
                <div class="col-md-12 pl-0 mb-4"> 
                 <textarea class="form-register text" formControlName="comments"  [readonly]="buttonDisabled"
@@ -168,9 +168,9 @@
                   
                </div>
                
-               <div class="form-group"  >
+               <div class="clearfix"  >
                    <button type="submit" [disabled]="isChecked1" [ngClass]="{'d-none' : isChecked}" class="btn btn-default submit w-100" >Submit</button>
-                   <button (click)="update()" [ngClass]="{'d-block' : isChecked}" class="btn btn-default update w-100" >Update</button>
+                   <a (click)="Update()" [ngClass]="{'d-block' : isChecked}" class="btn btn-default update w-100" >Update</a>
                </div>
            </form>
         
@@ -193,9 +193,9 @@
  <td class="text-truncate">{{d.firstName}}</td>
  <td class="text-truncate">{{d.email}}</td>
  <td class="text-truncate">{{d.phoneNumber}}</td>
- <td><button class="ed" (click)="onEdit(d)">Edit</button></td>
- <td><button class="ed" style="background:#f00;" (click)="onDelete(d._id)">Delete</button></td>
- <td><button class="ed"style="background:#000;" (click)="onview(d._id)">View</button></td>
+ <td><button class="ed" (click)="OnEdit(d)">Edit</button></td>
+ <td><button class="ed" style="background:#f00;" (click)="OnDelete(d._id)">Delete</button></td>
+ <td><button class="ed"style="background:#000;" (click)="OnView(d._id)">View</button></td>
 </tr>
 </tbody>
 </table>
