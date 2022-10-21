@@ -18,6 +18,7 @@ export class BiodataComponent implements OnInit {
   public isChecked = false;
   public isChecked1 = false;
   id: any;
+  errormessage: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -73,9 +74,15 @@ export class BiodataComponent implements OnInit {
     });
   }
   ViewAlldata() {
-    this.userService.GetAllData().subscribe((data) => {
-      this.myData = data;
-    });
+    this.userService.GetAllData().subscribe(
+      (data) => {
+        this.myData = data;
+      }
+      //, (error) => {
+      //   this.errormessage = error;
+      //   console.log(error);
+      // }
+    );
   }
 
   OnDelete(id: string) {
